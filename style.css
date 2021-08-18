@@ -1,0 +1,245 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+    font-family: 'Mandali', sans-serif;
+    font-weight: 600;
+    -webkit-text-size-adjust: none;
+    background: radial-gradient(#fff,#53535334);
+    
+}
+
+.gameContainer{
+    position: relative;
+    width: 800px;
+    height: 160px;
+    background: #525252;
+    transform-origin: bottom;
+    transform-style:  preserve-3d;
+    transform: perspective(500px) rotateX(30deg);
+}
+
+.gameContainer::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 10px;
+    background : linear-gradient(90deg, #fff 0%, #fff 70%, #525252 70%, #525252 100%);
+    background-size: 120px;
+}
+
+.slow::before{
+    animation: animateRoad 2s linear infinite;
+}
+.normal::before{
+    animation: animateRoad 1s linear infinite;
+}
+.fast::before{
+    animation: animateRoad 0.6s linear infinite;
+}
+.fastest::before{
+    animation: animateRoad 0.3s linear infinite;
+}
+.lightSpeed::before{
+    animation: animateRoad 0.08s linear infinite;
+}
+
+@keyframes animateRoad {
+    0%
+    {
+        background-position: 0px;
+    }   
+    100%
+    {
+        background-position: -120px;
+    }
+}
+
+.gameContainer::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    background: #333;
+    bottom: -30px;
+    transform-origin: top;
+    transform: perspective(500px) rotateX(-25deg);
+}
+
+.shadow{
+    position: absolute;
+    bottom: -92px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    height: 60px;
+    background: linear-gradient(#000,transparent);
+    opacity: 0.5;
+
+}
+
+.car{
+    position: relative;
+    bottom: -65px;
+    height: 55px;
+    width: 200px;
+    background: url(img/cars/formula.v2.png);
+    transform: rotateX(-30deg) translateY(-25px);
+    background-size: 100%;
+    animation: animateCar 0.5s alternate-reverse infinite; 
+}
+  
+
+@keyframes animateCar {
+    0%
+    {
+        bottom: -65px;
+    }   
+    100%
+    {
+        bottom:-70px;
+    }
+
+}
+
+.speed{
+    position: absolute;
+    right: 0;
+    padding: 0px 10px;
+    color: white;
+    
+}
+
+.fuel{
+    color: white;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 5px;
+}
+
+.baseContainer{
+    position: relative;
+    top: 15%;
+}
+
+
+.wrapper{
+    display: flex;
+    width: 100%;
+    height: 40%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.wrapper .option{
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 40px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0 10px;
+    border: 2px solid lightgrey;
+    transition: all 0.3s ease;
+}
+
+.wrapper .option .dot{
+    height: 20px;
+    width: 20px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    position: relative;
+}
+
+.wrapper .option .dot::before{
+    position: absolute;
+    content: "";
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+
+#option-1:checked:checked ~ .option-1 .dot,
+#option-2:checked:checked ~ .option-2 .dot,
+#option-3:checked:checked ~ .option-3 .dot,
+#option-4:checked:checked ~ .option-4 .dot{
+    background: #fff;
+}
+
+#option-1:checked:checked ~ .option-1 .dot::before,
+#option-2:checked:checked ~ .option-2 .dot::before,
+#option-3:checked:checked ~ .option-3 .dot::before,
+#option-4:checked:checked ~ .option-4 .dot::before{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.wrapper .option span{
+    font-size: 20px;
+    color: #808080;
+}
+
+#option-1:checked:checked ~ .option-1 span,
+#option-2:checked:checked ~ .option-2 span,
+#option-3:checked:checked ~ .option-3 span,
+#option-4:checked:checked ~ .option-4 span{
+    color: #fff;
+}
+
+.menu{
+    display: none;
+    position: absolute;
+    top: 100px;
+    right: 35%;
+    border-radius: 5px;
+    padding: 20px 15px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.308);
+}
+
+span#procent {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 50px;
+    transform: translate(-50%, -50%);
+}
+  
+span#procent::after {
+    content: '%';
+}
+  
+.canvas-wrap {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}

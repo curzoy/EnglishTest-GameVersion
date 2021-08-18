@@ -1,0 +1,62 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link 
+            href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" 
+            rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <title>English Test</title>
+    </head>
+    <body onload="NextQuestion(0)">
+        <main id="main">
+        <div class="topContainer">
+            <h1 id="display-question">Dsiplay Question</h1>
+        </div>
+        <div class="gameContainer lightSpeed" id="road">
+            <h1 class="speed"><i class="fas fa-tachometer-alt"></i> <span id="speed">100</span> Km/H</h1>
+            <div class="fuel">
+            <label for="fuel"><i class="fas fa-gas-pump"></i></label>
+            <progress id="fuel" value="15" max="15"></progress>
+            </div>
+            <div class="car"></div>
+
+            <div class="shadow"></div>
+        </div>
+        <div class="baseContainer">
+            <div class="wrapper">
+                <input type="radio" name="select" id="option-1" value="optionA" onclick="handleNextQuestion()">
+                <input type="radio" name="select" id="option-2" value="optionB" onclick="handleNextQuestion()">
+                <input type="radio" name="select" id="option-3" value="optionC" onclick="handleNextQuestion()">
+                <input type="radio" name="select" id="option-4" value="optionD" onclick="handleNextQuestion()">
+                  <label for="option-1" class="option option-1" id="select-one-label">
+                    <div class="dot"></div>
+                     <span>A</span>
+                     </label>
+                  <label for="option-2" class="option option-2" id="select-two-label">
+                    <div class="dot"></div>
+                     <span>B</span>
+                  </label>
+                  <label for="option-3" class="option option-3" id="select-three-label">
+                    <div class="dot"></div>
+                     <span>C</span>
+                  </label>
+                  <label for="option-4" class="option option-4" id="select-four-label">
+                    <div class="dot"></div>
+                     <span>D</span>
+                  </label>
+            </div>
+        </div>
+    </main>
+    <div class="menu" id="result">
+        <h1 style="align-items: center;" id="resultState">You Won</h1>
+        <div class="canvas-wrap">
+          <canvas id="canvas" width="300" height="300"></canvas>
+          <span id="procent"></span>
+        </div>
+        <h4 id="score">Overall Score :</h4><br><span id="pharse">Keep Trying Harder</span>
+      </div>
+    <script src="app.js"></script>
+</body>
